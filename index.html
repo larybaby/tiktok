@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="pt-BR" prefix="og: https://ogp.me/ns#">
+<head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.v="1.2.4",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",t=>{this.persisted=t.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(t){if(document.hidden){t._triggerListener();return}this.triggerEvents.forEach(e=>window.addEventListener(e,t.userEventHandler,{passive:!0})),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(t){t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(t=>{this._isClickPending?this._pendingClickFinished=t:t()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(t,e,r){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(r,event.target.getAttribute(e)),event.target.removeAttribute(e))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let r=e.getAttribute("data-rocket-src");if(r&&0!==r.indexOf("data:")){0===r.indexOf("//")&&(r=location.protocol+r);try{let i=new URL(r).origin;i!==location.origin&&t.push({src:i,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(n){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this._batchInjectResourceHints(t,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._pendingWebpackRequests(this),await this._triggerWindowLoad()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _transformScript(t){if(await this._littleBreath(),!0===t.noModule&&"noModule"in HTMLScriptElement.prototype){t.setAttribute("data-rocket-status","skipped");return}return new Promise(navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor?e=>{let r=document.createElement("script");[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),r.setAttribute(e,t.nodeValue))}),t.text&&(r.text=t.text),r.hasAttribute("src")?(r.addEventListener("load",e),r.addEventListener("error",e)):(r.text=t.text,e());try{t.parentNode.replaceChild(r,t)}catch(i){e()}}:e=>{function r(){t.setAttribute("data-rocket-status","failed"),e()}try{let i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",function r(){t.setAttribute("data-rocket-status","executed"),e()}),t.addEventListener("error",r),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}catch(s){r()}})}async _loadScriptsFromList(t){let e=t.shift();return e&&e.isConnected?(await this._transformScript(e),this._loadScriptsFromList(t)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(t,e){var r=document.createDocumentFragment();t.forEach(t=>{let i=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(i){let n=document.createElement("link");n.href=i,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),r.appendChild(n),this.trash.push(n)}}),document.head.appendChild(r)}_delayEventListeners(){let t={};function e(e,r){!function e(r){!t[r]&&(t[r]={originalFunctions:{add:r.addEventListener,remove:r.removeEventListener},eventsToRewrite:[]},r.addEventListener=function(){arguments[0]=i(arguments[0]),t[r].originalFunctions.add.apply(r,arguments)},r.removeEventListener=function(){arguments[0]=i(arguments[0]),t[r].originalFunctions.remove.apply(r,arguments)});function i(e){return t[r].eventsToRewrite.indexOf(e)>=0?"rocket-"+e:e}}(e),t[e].eventsToRewrite.push(r)}function r(t,e){let r=t[e];Object.defineProperty(t,e,{get:()=>r||function(){},set(i){t["rocket"+e]=r=i}})}e(document,"DOMContentLoaded"),e(window,"DOMContentLoaded"),e(window,"load"),e(window,"pageshow"),e(document,"readystatechange"),r(document,"onreadystatechange"),r(window,"onload"),r(window,"onpageshow")}_delayJQueryReady(t){let e;function r(t){return t.split(" ").map(t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t).join(" ")}function i(i){if(i&&i.fn&&!t.allJQueries.includes(i)){i.fn.ready=i.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(i):document.addEventListener("rocket-DOMContentLoaded",()=>e.bind(document)(i)),i([])};let n=i.fn.on;i.fn.on=i.fn.init.prototype.on=function(){return this[0]===window&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=r(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{let e=arguments[0][t];delete arguments[0][t],arguments[0][r(t)]=e})),n.apply(this,arguments),this},t.allJQueries.push(i)}e=i}i(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){i(t)}})}async _pendingWebpackRequests(t){let e=document.querySelector("script[data-webpack]");async function r(){return new Promise(t=>{e.addEventListener("load",t),e.addEventListener("error",t)})}e&&(await r(),await t._requestAnimFrame(),await t._pendingWebpackRequests(t))}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this._littleBreath();let t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let t=new Map;document.write=document.writeln=function(e){let r=document.currentScript;r||console.error("WPRocket unable to document.write this: "+e);let i=document.createRange(),n=r.parentElement,s=t.get(r);void 0===s&&(s=r.nextSibling,t.set(r,s));let a=document.createDocumentFragment();i.setStart(a,0),a.appendChild(i.createContextualFragment(e)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}_emptyTrash(){this.trash.forEach(t=>t.remove())}static run(){let t=new RocketLazyLoadScripts;t._addUserInteractionListener(t)}}RocketLazyLoadScripts.run();</script>
+	
+	<link rel="preload" href="//tik18plus.co/wp-content/plugins/rate-my-post/public/css/fonts/ratemypost.ttf" type="font/ttf" as="font" crossorigin="anonymous"><meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Otimização para mecanismos de pesquisa pelo Rank Math - https://rankmath.com/ -->
+<title>Baixar Tiktok 18+ APK Última versão para Android - 2024</title><link rel="preload" as="font" href="//tik18plus.co/wp-content/plugins/rate-my-post/public/css/fonts/ratemypost.ttf" crossorigin><style id="wpr-usedcss">img.emoji{display:inline!important;border:none!important;box-shadow:none!important;height:1em!important;width:1em!important;margin:0 .07em!important;vertical-align:-.1em!important;background:0 0!important;padding:0!important}.wp-block-button__link{box-sizing:border-box;cursor:pointer;display:inline-block;text-align:center;word-break:break-word}.wp-block-button__link.aligncenter{text-align:center}:where(.wp-block-button__link){border-radius:9999px;box-shadow:none;padding:calc(.667em + 2px) calc(1.333em + 2px);text-decoration:none}.wp-block-button .wp-block-button__link:where(.has-border-color){border-width:initial}.wp-block-button .wp-block-button__link:where([style*=border-top-color]){border-top-width:medium}.wp-block-button .wp-block-button__link:where([style*=border-right-color]){border-right-width:medium}.wp-block-button .wp-block-button__link:where([style*=border-bottom-color]){border-bottom-width:medium}.wp-block-button .wp-block-button__link:where([style*=border-left-color]){border-left-width:medium}.wp-block-button .wp-block-button__link:where([style*=border-style]){border-width:initial}.wp-block-button .wp-block-button__link:where([style*=border-top-style]){border-top-width:medium}.wp-block-button .wp-block-button__link:where([style*=border-right-style]){border-right-width:medium}.wp-block-button .wp-block-button__link:where([style*=border-bottom-style]){border-bottom-width:medium}.wp-block-button .wp-block-button__link:where([style*=border-left-style]){border-left-width:medium}.wp-block-buttons>.wp-block-button{display:inline-block;margin:0}.wp-block-buttons.is-content-justification-center{justify-content:center}.wp-block-buttons.aligncenter{text-align:center}.wp-block-buttons:not(.is-content-justification-space-between,.is-content-justification-right,.is-content-justification-left,.is-content-justification-center) .wp-block-button.aligncenter{margin-left:auto;margin-right:auto;width:100%}.wp-block-button.aligncenter{text-align:center}:where(.wp-block-calendar table:not(.has-background) th){background:#ddd}.wp-block-columns{align-items:normal!important;box-sizing:border-box;display:flex;flex-wrap:wrap!important}@media (min-width:782px){.wp-block-columns{flex-wrap:nowrap!important}}@media (max-width:781px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:100%!important}}@media (min-width:782px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:0;flex-grow:1}}:where(.wp-block-columns){margin-bottom:1.75em}:where(.wp-block-columns.has-background){padding:1.25em 2.375em}.wp-block-column{flex-grow:1;min-width:0;overflow-wrap:break-word;word-break:break-word}:where(.wp-block-post-comments input[type=submit]){border:none}.wp-block-cover{align-items:center;background-position:50%;box-sizing:border-box;display:flex;justify-content:center;min-height:430px;overflow:hidden;overflow:clip;padding:1em;position:relative}.wp-block-cover .has-background-dim:not([class*=-background-color]),.wp-block-cover.has-background-dim:not([class*=-background-color]){background-color:#000}.wp-block-cover.has-background-dim:before{background-color:inherit;content:""}.wp-block-cover .wp-block-cover__background,.wp-block-cover.has-background-dim:not(.has-background-gradient):before{bottom:0;left:0;opacity:.5;position:absolute;right:0;top:0;z-index:1}.wp-block-cover.has-background-dim.has-background-dim-80 .wp-block-cover__background,.wp-block-cover.has-background-dim.has-background-dim-80:not(.has-background-gradient):before{opacity:.8}.wp-block-cover .wp-block-cover__background.has-background-dim.has-background-dim-80{opacity:.8}.wp-block-cover:after{content:"";display:block;font-size:0;min-height:inherit}@supports (position:sticky){.wp-block-cover:after{content:none}}.wp-block-cover.aligncenter{display:flex}.wp-block-cover .wp-block-cover__inner-container{color:inherit;width:100%;z-index:1}.wp-block-cover h1:not(.has-text-color),.wp-block-cover h2:not(.has-text-color),.wp-block-cover h3:not(.has-text-color),.wp-block-cover p:not(.has-text-color){color:inherit}.wp-block-cover .wp-block-cover__image-background{border:none;bottom:0;box-shadow:none;height:100%;left:0;margin:0;max-height:none;max-width:none;object-fit:cover;outline:0;padding:0;position:absolute;right:0;top:0;width:100%}.wp-block-cover__image-background{z-index:0}:where(.wp-block-cover-image:not(.has-text-color)),:where(.wp-block-cover:not(.has-text-color)){color:#fff}:where(.wp-block-cover-image.is-light:not(.has-text-color)),:where(.wp-block-cover.is-light:not(.has-text-color)){color:#000}:where(.wp-block-file){margin-bottom:1.5em}:where(.wp-block-file__button){border-radius:2em;display:inline-block;padding:.5em 1em}:where(.wp-block-file__button):is(a):active,:where(.wp-block-file__button):is(a):focus,:where(.wp-block-file__button):is(a):hover,:where(.wp-block-file__button):is(a):visited{box-shadow:none;color:#fff;opacity:.85;text-decoration:none}h1.has-background,h2.has-background,h3.has-background{padding:1.25em 2.375em}.wp-block-image img{box-sizing:border-box;height:auto;max-width:100%;vertical-align:bottom}.wp-block-image.aligncenter{text-align:center}.wp-block-image.alignwide img{height:auto;width:100%}.wp-block-image .aligncenter,.wp-block-image.aligncenter{display:table}.wp-block-image .aligncenter{margin-left:auto;margin-right:auto}.wp-block-image :where(.has-border-color){border-style:solid}.wp-block-image :where([style*=border-top-color]){border-top-style:solid}.wp-block-image :where([style*=border-right-color]){border-right-style:solid}.wp-block-image :where([style*=border-bottom-color]){border-bottom-style:solid}.wp-block-image :where([style*=border-left-color]){border-left-style:solid}.wp-block-image :where([style*=border-width]){border-style:solid}.wp-block-image :where([style*=border-top-width]){border-top-style:solid}.wp-block-image :where([style*=border-right-width]){border-right-style:solid}.wp-block-image :where([style*=border-bottom-width]){border-bottom-style:solid}.wp-block-image :where([style*=border-left-width]){border-left-style:solid}.wp-block-image figure{margin:0}:where(.wp-block-latest-comments:not([style*=line-height] .wp-block-latest-comments__comment)){line-height:1.1}:where(.wp-block-latest-comments:not([style*=line-height] .wp-block-latest-comments__comment-excerpt p)){line-height:1.8}ul{box-sizing:border-box}ul.has-background{padding:1.25em 2.375em}:where(.wp-block-navigation.has-background .wp-block-navigation-item a:not(.wp-element-button)),:where(.wp-block-navigation.has-background .wp-block-navigation-submenu a:not(.wp-element-button)){padding:.5em 1em}:where(.wp-block-navigation .wp-block-navigation__submenu-container .wp-block-navigation-item a:not(.wp-element-button)),:where(.wp-block-navigation .wp-block-navigation__submenu-container .wp-block-navigation-submenu a:not(.wp-element-button)),:where(.wp-block-navigation .wp-block-navigation__submenu-container .wp-block-navigation-submenu button.wp-block-navigation-item__content),:where(.wp-block-navigation .wp-block-navigation__submenu-container .wp-block-pages-list__item button.wp-block-navigation-item__content){padding:.5em 1em}p.has-background{padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}:where(.wp-block-post-excerpt){margin-bottom:var(--wp--style--block-gap);margin-top:var(--wp--style--block-gap)}:where(.wp-block-preformatted.has-background){padding:1.25em 2.375em}:where(.wp-block-pullquote){margin:0 0 1em}:where(.wp-block-search__button){border:1px solid #ccc;padding:6px 10px}:where(.wp-block-search__button-inside .wp-block-search__inside-wrapper){border:1px solid #949494;box-sizing:border-box;padding:4px}:where(.wp-block-search__button-inside .wp-block-search__inside-wrapper) .wp-block-search__input{border:none;border-radius:0;padding:0 4px}:where(.wp-block-search__button-inside .wp-block-search__inside-wrapper) .wp-block-search__input:focus{outline:0}:where(.wp-block-search__button-inside .wp-block-search__inside-wrapper) :where(.wp-block-search__button){padding:4px 8px}.wp-block-table{overflow-x:auto}.wp-block-table table{border-collapse:collapse;width:100%}.wp-block-table td,.wp-block-table th{border:1px solid;padding:.5em}.wp-block-table .has-fixed-layout{table-layout:fixed;width:100%}.wp-block-table .has-fixed-layout td,.wp-block-table .has-fixed-layout th{word-break:break-word}.wp-block-table.aligncenter{display:table;width:auto}.wp-block-table.aligncenter td,.wp-block-table.aligncenter th{word-break:break-word}:where(.wp-block-term-description){margin-bottom:var(--wp--style--block-gap);margin-top:var(--wp--style--block-gap)}:where(pre.wp-block-verse){font-family:inherit}.entry-content{counter-reset:footnotes}.wp-element-button{cursor:pointer}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-text-align-center{text-align:center}.aligncenter{clear:both}.screen-reader-text{clip:rect(1px,1px,1px,1px);word-wrap:normal!important;border:0;-webkit-clip-path:inset(50%);clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.screen-reader-text:focus{clip:auto!important;background-color:#ddd;-webkit-clip-path:none;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}body{--wp--preset--color--black:#000000;--wp--preset--color--cyan-bluish-gray:#abb8c3;--wp--preset--color--white:#ffffff;--wp--preset--color--pale-pink:#f78da7;--wp--preset--color--vivid-red:#cf2e2e;--wp--preset--color--luminous-vivid-orange:#ff6900;--wp--preset--color--luminous-vivid-amber:#fcb900;--wp--preset--color--light-green-cyan:#7bdcb5;--wp--preset--color--vivid-green-cyan:#00d084;--wp--preset--color--pale-cyan-blue:#8ed1fc;--wp--preset--color--vivid-cyan-blue:#0693e3;--wp--preset--color--vivid-purple:#9b51e0;--wp--preset--color--contrast:var(--contrast);--wp--preset--color--contrast-2:var(--contrast-2);--wp--preset--color--contrast-3:var(--contrast-3);--wp--preset--color--base:var(--base);--wp--preset--color--base-2:var(--base-2);--wp--preset--color--base-3:var(--base-3);--wp--preset--color--accent:var(--accent);--wp--preset--color--accent-2:var(--accent-2);--wp--preset--color--accent-hover:var(--accent-hover);--wp--preset--color--highlight:var(--highlight);--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple:linear-gradient(135deg,rgba(6, 147, 227, 1) 0%,rgb(155, 81, 224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan:linear-gradient(135deg,rgb(122, 220, 180) 0%,rgb(0, 208, 130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange:linear-gradient(135deg,rgba(252, 185, 0, 1) 0%,rgba(255, 105, 0, 1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red:linear-gradient(135deg,rgba(255, 105, 0, 1) 0%,rgb(207, 46, 46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray:linear-gradient(135deg,rgb(238, 238, 238) 0%,rgb(169, 184, 195) 100%);--wp--preset--gradient--cool-to-warm-spectrum:linear-gradient(135deg,rgb(74, 234, 220) 0%,rgb(151, 120, 209) 20%,rgb(207, 42, 186) 40%,rgb(238, 44, 130) 60%,rgb(251, 105, 98) 80%,rgb(254, 248, 76) 100%);--wp--preset--gradient--blush-light-purple:linear-gradient(135deg,rgb(255, 206, 236) 0%,rgb(152, 150, 240) 100%);--wp--preset--gradient--blush-bordeaux:linear-gradient(135deg,rgb(254, 205, 165) 0%,rgb(254, 45, 45) 50%,rgb(107, 0, 62) 100%);--wp--preset--gradient--luminous-dusk:linear-gradient(135deg,rgb(255, 203, 112) 0%,rgb(199, 81, 192) 50%,rgb(65, 88, 208) 100%);--wp--preset--gradient--pale-ocean:linear-gradient(135deg,rgb(255, 245, 203) 0%,rgb(182, 227, 212) 50%,rgb(51, 167, 181) 100%);--wp--preset--gradient--electric-grass:linear-gradient(135deg,rgb(202, 248, 128) 0%,rgb(113, 206, 126) 100%);--wp--preset--gradient--midnight:linear-gradient(135deg,rgb(2, 3, 129) 0%,rgb(40, 116, 252) 100%);--wp--preset--font-size--small:13px;--wp--preset--font-size--medium:20px;--wp--preset--font-size--large:36px;--wp--preset--font-size--x-large:42px;--wp--preset--spacing--20:0.44rem;--wp--preset--spacing--30:0.67rem;--wp--preset--spacing--40:1rem;--wp--preset--spacing--50:1.5rem;--wp--preset--spacing--60:2.25rem;--wp--preset--spacing--70:3.38rem;--wp--preset--spacing--80:5.06rem;--wp--preset--shadow--natural:6px 6px 9px rgba(0, 0, 0, .2);--wp--preset--shadow--deep:12px 12px 50px rgba(0, 0, 0, .4);--wp--preset--shadow--sharp:6px 6px 0px rgba(0, 0, 0, .2);--wp--preset--shadow--outlined:6px 6px 0px -3px rgba(255, 255, 255, 1),6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp:6px 6px 0px rgba(0, 0, 0, 1)}:where(.is-layout-flex){gap:.5em}:where(.is-layout-grid){gap:.5em}body .is-layout-flow>.aligncenter{margin-left:auto!important;margin-right:auto!important}body .is-layout-constrained>.aligncenter{margin-left:auto!important;margin-right:auto!important}body .is-layout-constrained>:where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width:var(--wp--style--global--content-size);margin-left:auto!important;margin-right:auto!important}body .is-layout-constrained>.alignwide{max-width:var(--wp--style--global--wide-size)}body .is-layout-flex{display:flex}body .is-layout-flex{flex-wrap:wrap;align-items:center}body .is-layout-flex>*{margin:0}.has-large-font-size{font-size:var(--wp--preset--font-size--large)!important}:where(.wp-block-post-template.is-layout-flex){gap:1.25em}:where(.wp-block-post-template.is-layout-grid){gap:1.25em}:where(.wp-block-columns.is-layout-flex){gap:2em}:where(.wp-block-columns.is-layout-grid){gap:2em}@font-face{font-family:ratemypost;src:url(https://tik18plus.co/wp-content/plugins/rate-my-post/public/css/fonts/ratemypost.eot);src:url(https://tik18plus.co/wp-content/plugins/rate-my-post/public/css/fonts/ratemypost.eot#iefix) format('embedded-opentype'),url(https://tik18plus.co/wp-content/plugins/rate-my-post/public/css/fonts/ratemypost.ttf) format('truetype'),url(https://tik18plus.co/wp-content/plugins/rate-my-post/public/css/fonts/ratemypost.woff) format('woff'),url(https://tik18plus.co/wp-content/plugins/rate-my-post/public/css/fonts/ratemypost.svg#ratemypost) format('svg');font-weight:400;font-style:normal;font-display:swap}[class*=" rmp-icon--"],[class^=rmp-icon--]{font-family:ratemypost!important;speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.rmp-icon--full-highlight{color:#ff912c}.rmp-icon--half-highlight{background:linear-gradient(to right,#ff912c 50%,#ccc 50%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}#toc_container li,#toc_container ul{margin:0;padding:0}#toc_container.no_bullets li,#toc_container.no_bullets ul,#toc_container.no_bullets ul li{background:0 0;list-style-type:none;list-style:none}#toc_container ul ul{margin-left:1.5em}#toc_container{background:#f9f9f9;border:1px solid #aaa;padding:10px;margin-bottom:1em;width:auto;display:table;font-size:95%}#toc_container.toc_transparent{background:none}#toc_container p.toc_title{text-align:center;font-weight:700;margin:0;padding:0}#toc_container span.toc_toggle{font-weight:400;font-size:90%}#toc_container p.toc_title+ul.toc_list{margin-top:1em}#toc_container a{text-decoration:none;text-shadow:none}#toc_container a:hover{text-decoration:underline}#rank-math-faq .rank-math-list-item{border:1px solid #d1dfee;margin-bottom:20px;background-color:#fdfeff}#rank-math-faq .rank-math-question{font-size:14px;font-weight:700;margin:0;padding:17px 56px 17px 12px;line-height:1.4;cursor:pointer;position:relative;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;display:block}#rank-math-faq .rank-math-question.faq-q-open{border-bottom:1px solid #d1dfee}#rank-math-faq .rank-math-question:after{content:"+";position:absolute;top:50%;right:0;width:56px;text-align:center;-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);font-weight:700;color:#000;font-size:20px}#rank-math-faq .rank-math-question.faq-q-open:after{content:"-"}#rank-math-faq .rank-math-answer{margin:0;padding:12px;background-color:#fff;font-size:16px!important;line-height:1.4!important;border-bottom:1px solid #dedee0;display:none}#rank-math-faq .RMFA-quesion-button{all:unset!important}.footer-bar-active .footer-bar .widget{padding:0}.footer-bar .widget_nav_menu>div>ul{display:flex;align-items:center;flex-wrap:wrap}.footer-bar .widget_nav_menu li{margin:0 10px;padding:0}.footer-bar .widget_nav_menu li:first-child{margin-left:0}.footer-bar .widget_nav_menu li:last-child{margin-right:0}.footer-bar .widget_nav_menu li ul{display:none}.footer-bar-align-right .copyright-bar{order:-20;margin-right:auto}.site-footer:not(.footer-bar-active) .copyright-bar{margin:0 auto}@media (max-width:768px){.footer-bar-active .inside-site-info{flex-direction:column}.footer-bar-active .footer-bar{margin-bottom:10px}.footer-bar .widget_nav_menu>div>ul{justify-content:center}.footer-bar .widget_nav_menu li{padding:5px 0}.footer-bar .widget_nav_menu li:first-child{margin-left:10px}.footer-bar .widget_nav_menu li:last-child{margin-right:10px}.footer-bar-align-right .copyright-bar{order:unset;margin-right:0}}body,dl,dt,fieldset,figure,h1,h2,h3,html,iframe,legend,li,p,textarea,ul{margin:0;padding:0;border:0}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}main{display:block}progress{vertical-align:baseline}html{box-sizing:border-box}*,::after,::before{box-sizing:inherit}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;margin:0}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-moz-focus-inner{border-style:none;padding:0}body,button,input,select,textarea{font-family:-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-weight:400;text-transform:none;font-size:17px;line-height:1.5}p{margin-bottom:1.5em}h1,h2,h3{font-family:inherit;font-size:100%;font-style:inherit;font-weight:inherit}table,td,th{border:1px solid rgba(0,0,0,.1)}table{border-collapse:separate;border-spacing:0;border-width:1px 0 0 1px;margin:0 0 1.5em;width:100%}td,th{padding:8px}th{border-width:0 1px 1px 0}td{border-width:0 1px 1px 0}fieldset{padding:0;border:0;min-width:inherit}fieldset legend{padding:0;margin-bottom:1.5em}h1{font-size:42px;margin-bottom:20px;line-height:1.2em;font-weight:400;text-transform:none}h2{font-size:35px;margin-bottom:20px;line-height:1.2em;font-weight:400;text-transform:none}h3{font-size:29px;margin-bottom:20px;line-height:1.2em;font-weight:400;text-transform:none}ul{margin:0 0 1.5em 3em}ul{list-style:disc}li>ul{margin-bottom:0;margin-left:1.5em}dt{font-weight:700}strong{font-weight:700}em{font-style:italic}address{margin:0 0 1.5em}code,tt{font:15px Monaco,Consolas,"Andale Mono","DejaVu Sans Mono",monospace}figure{margin:0}table{margin:0 0 1.5em;width:100%}th{font-weight:700}img{height:auto;max-width:100%}button,input[type=button],input[type=reset],input[type=submit]{background:#55555e;color:#fff;border:1px solid transparent;cursor:pointer;-webkit-appearance:button;padding:10px 20px}input[type=email],input[type=number],input[type=password],input[type=search],input[type=text],input[type=url],select,textarea{border:1px solid;border-radius:0;padding:10px 15px;max-width:100%}textarea{width:100%}a,button,input{transition:color .1s ease-in-out,background-color .1s ease-in-out}a{text-decoration:none}.button,.wp-block-button .wp-block-button__link{padding:10px 20px;display:inline-block}.wp-block-button .wp-block-button__link{font-size:inherit;line-height:inherit}.using-mouse :focus{outline:0}.using-mouse ::-moz-focus-inner{border:0}.aligncenter{clear:both;display:block;margin:0 auto}.size-full{max-width:100%;height:auto}.screen-reader-text{border:0;clip:rect(1px,1px,1px,1px);-webkit-clip-path:inset(50%);clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute!important;width:1px;word-wrap:normal!important}.screen-reader-text:focus{background-color:#f1f1f1;border-radius:3px;box-shadow:0 0 2px 2px rgba(0,0,0,.6);clip:auto!important;-webkit-clip-path:none;clip-path:none;color:#21759b;display:block;font-size:.875rem;font-weight:700;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}.main-navigation{z-index:100;padding:0;clear:both;display:block}.main-navigation a{display:block;text-decoration:none;font-weight:400;text-transform:none;font-size:15px}.main-navigation ul{list-style:none;margin:0;padding-left:0}.main-navigation .main-nav ul li a{padding-left:20px;padding-right:20px;line-height:60px}.inside-navigation{position:relative}.main-navigation .inside-navigation{display:flex;align-items:center;flex-wrap:wrap;justify-content:space-between}.main-navigation .main-nav>ul{display:flex;flex-wrap:wrap;align-items:center}.main-navigation li{position:relative}.main-navigation .menu-bar-items{display:flex;align-items:center;font-size:15px}.main-navigation .menu-bar-items a{color:inherit}.main-navigation .menu-bar-item{position:relative}.main-navigation .menu-bar-item.search-item{z-index:20}.main-navigation .menu-bar-item>a{padding-left:20px;padding-right:20px;line-height:60px}.nav-align-right .inside-navigation{justify-content:flex-end}.main-navigation ul ul{display:block;box-shadow:1px 1px 0 rgba(0,0,0,.1);float:left;position:absolute;left:-99999px;opacity:0;z-index:99999;width:200px;text-align:left;top:auto;transition:opacity 80ms linear;transition-delay:0s;pointer-events:none;height:0;overflow:hidden}.main-navigation ul ul a{display:block}.main-navigation ul ul li{width:100%}.main-navigation .main-nav ul ul li a{line-height:normal;padding:10px 20px;font-size:14px}.main-navigation .main-nav ul li.menu-item-has-children>a{padding-right:0;position:relative}.main-navigation.sub-menu-left ul ul{box-shadow:-1px 1px 0 rgba(0,0,0,.1)}.main-navigation.sub-menu-left .sub-menu{right:0}.main-navigation:not(.toggled) ul li.sfHover>ul,.main-navigation:not(.toggled) ul li:hover>ul{left:auto;opacity:1;transition-delay:150ms;pointer-events:auto;height:auto;overflow:visible}.main-navigation:not(.toggled) ul ul li.sfHover>ul,.main-navigation:not(.toggled) ul ul li:hover>ul{left:100%;top:0}.main-navigation.sub-menu-left:not(.toggled) ul ul li.sfHover>ul,.main-navigation.sub-menu-left:not(.toggled) ul ul li:hover>ul{right:100%;left:auto}.menu-item-has-children .dropdown-menu-toggle{display:inline-block;height:100%;clear:both;padding-right:20px;padding-left:10px}.menu-item-has-children ul .dropdown-menu-toggle{padding-top:10px;padding-bottom:10px;margin-top:-10px}nav ul ul .menu-item-has-children .dropdown-menu-toggle{float:right}.main-title{margin:0;font-size:25px;line-height:1.2em;word-wrap:break-word;font-weight:700;text-transform:none}.site-logo{display:inline-block;max-width:100%}.entry-content:not(:first-child){margin-top:2em}.site-content{word-wrap:break-word}.entry-content>p:last-child{margin-bottom:0}iframe,object{max-width:100%}.widget select{max-width:100%}.widget ul{margin:0}.widget ul li{list-style-type:none;position:relative;margin-bottom:.5em}.widget ul li ul{margin-left:1em;margin-top:.5em}.site-content{display:flex}.grid-container{margin-left:auto;margin-right:auto;max-width:1200px}.site-main>*{margin-bottom:20px}.one-container .site-content{padding:40px}.one-container .site-main>:last-child{margin-bottom:0}.inside-site-info{display:flex;align-items:center;justify-content:center;padding:20px 40px}.site-info{text-align:center;font-size:15px}.gp-icon{display:inline-flex;align-self:center}.gp-icon svg{height:1em;width:1em;top:.125em;position:relative;fill:currentColor}.close-search .icon-search svg:first-child,.icon-menu-bars svg:nth-child(2),.toggled .icon-menu-bars svg:first-child{display:none}.close-search .icon-search svg:nth-child(2),.toggled .icon-menu-bars svg:nth-child(2){display:block}nav.toggled .sfHover>a>.dropdown-menu-toggle .gp-icon svg{transform:rotate(180deg)}.container.grid-container{width:auto}.menu-toggle{display:none}.menu-toggle{padding:0 20px;line-height:60px;margin:0;font-weight:400;text-transform:none;font-size:15px;cursor:pointer}button.menu-toggle{background-color:transparent;flex-grow:1;border:0;text-align:center}button.menu-toggle:active,button.menu-toggle:focus,button.menu-toggle:hover{background-color:transparent}.has-menu-bar-items button.menu-toggle{flex-grow:0}nav.toggled ul ul.sub-menu{width:100%}.toggled .menu-item-has-children .dropdown-menu-toggle{padding-left:20px}.main-navigation.toggled .main-nav{flex-basis:100%;order:3}.main-navigation.toggled .main-nav>ul{display:block}.main-navigation.toggled .main-nav li{width:100%;text-align:left}.main-navigation.toggled .main-nav ul ul{transition:0s;visibility:hidden;box-shadow:none;border-bottom:1px solid rgba(0,0,0,.05)}.main-navigation.toggled .main-nav ul ul li:last-child>ul{border-bottom:0}.main-navigation.toggled .main-nav ul ul.toggled-on{position:relative;top:0;left:auto!important;right:auto!important;width:100%;pointer-events:auto;height:auto;opacity:1;display:block;visibility:visible;float:none}.main-navigation.toggled .menu-item-has-children .dropdown-menu-toggle{float:right}.mobile-menu-control-wrapper{display:none;margin-left:auto;align-items:center}body{background-color:var(--base-2);color:var(--base-3)}a{color:#07bcc4}a:active,a:focus,a:hover{color:var(--base-3)}.grid-container{max-width:1105px}:root{--contrast:#212121;--contrast-2:#2f4468;--contrast-3:#878787;--base:#fafafa;--base-2:#f7f8f9;--base-3:#ffffff;--accent:#242226;--accent-2:#07bcc4;--accent-hover:#35343a;--highlight:#83b0de}body,button,input,select,textarea{font-family:-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-weight:300;font-size:18px;letter-spacing:.6px}.main-title{font-size:25px}.button,.wp-block-button .wp-block-button__link,button:not(.menu-toggle),html input[type=button],input[type=reset],input[type=submit]{font-size:15px}h1{font-weight:600;font-size:30px}h2{font-weight:600;font-size:30px}h3{font-size:20px}.main-title a,.main-title a:hover{color:#fff}.main-navigation,.main-navigation ul ul{background-color:var(--accent-2)}.main-navigation .main-nav ul li a,.main-navigation .menu-bar-items,.main-navigation .menu-toggle{color:var(--base-3)}.main-navigation .main-nav ul li.sfHover:not([class*=current-menu-])>a,.main-navigation .main-nav ul li:not([class*=current-menu-]):focus>a,.main-navigation .main-nav ul li:not([class*=current-menu-]):hover>a,.main-navigation .menu-bar-item.sfHover>a,.main-navigation .menu-bar-item:hover>a{color:var(--base-3);background-color:var(--accent)}button.menu-toggle:focus,button.menu-toggle:hover{color:var(--base-3)}.main-navigation .main-nav ul li[class*=current-menu-]>a{color:var(--base-3);background-color:var(--accent)}.main-navigation .main-nav ul li.search-item.active>a,.main-navigation .menu-bar-items .search-item.active>a,.navigation-search input[type=search],.navigation-search input[type=search]:active,.navigation-search input[type=search]:focus{color:var(--base-3);background-color:var(--accent)}.one-container .container{color:var(--base-3);background-color:var(--contrast)}.inside-article a{color:#07bcc4}.inside-article a:hover{color:var(--base-3)}h1{color:var(--base-3)}h2{color:var(--base-3)}h3{color:var(--base-3)}.site-info{color:var(--base-3);background-color:var(--contrast)}.site-info a{color:var(--accent-2)}.site-info a:hover{color:var(--base-3)}input[type=email],input[type=number],input[type=password],input[type=search],input[type=text],input[type=url],select,textarea{color:var(--contrast);background-color:#fafafa;border-color:var(--contrast)}input[type=email]:focus,input[type=number]:focus,input[type=password]:focus,input[type=search]:focus,input[type=text]:focus,input[type=url]:focus,select:focus,textarea:focus{color:var(--contrast-3);background-color:#fff;border-color:var(--contrast-3)}a.button,a.wp-block-button__link:not(.has-background),button,html input[type=button],input[type=reset],input[type=submit]{color:#fff;background-color:var(--accent-2)}a.button:focus,a.button:hover,a.wp-block-button__link:not(.has-background):active,a.wp-block-button__link:not(.has-background):focus,a.wp-block-button__link:not(.has-background):hover,button:focus,button:hover,html input[type=button]:focus,html input[type=button]:hover,input[type=reset]:focus,input[type=reset]:hover,input[type=submit]:focus,input[type=submit]:hover{color:var(--accent-2);background-color:var(--base-3)}:root{--gp-search-modal-bg-color:var(--base-3);--gp-search-modal-text-color:var(--contrast);--gp-search-modal-overlay-bg-color:rgba(0, 0, 0, .2)}.one-container .site-content{padding:20px}.entry-content .alignwide{margin-left:-20px;width:calc(100% + 40px);max-width:calc(100% + 40px)}.site-main>*{margin-bottom:0}.main-navigation .main-nav ul li a,.main-navigation .menu-bar-item>a,.menu-toggle{padding-left:13px;padding-right:13px}.main-navigation .main-nav ul ul li a{padding:10px 13px}.menu-item-has-children .dropdown-menu-toggle{padding-right:13px}.inside-site-info{padding:20px}.inside-site-info.grid-container{max-width:1145px}@media (max-width:768px){a,body,button,input,select,textarea{transition:all 0s ease-in-out}.site-content{flex-direction:column}.container .site-content .content-area{width:auto}#main{margin-left:0;margin-right:0}body:not(.no-sidebar) #main{margin-bottom:0}.main-navigation .menu-bar-item.sfHover>a,.main-navigation .menu-bar-item:hover>a{background:0 0;color:var(--base-3)}.one-container .site-content{padding:20px 15px}.inside-site-info{padding-right:10px;padding-left:10px}.entry-content .alignwide{margin-left:-15px;width:calc(100% + 30px);max-width:calc(100% + 30px)}.main-navigation .menu-toggle{display:block}.main-navigation ul,.main-navigation:not(.slideout-navigation):not(.toggled) .main-nav>ul{display:none}.nav-align-right .inside-navigation{justify-content:space-between}}.site-content .content-area{width:100%}.navigation-branding{display:flex;align-items:center;order:0;margin-right:10px}.navigation-branding img{position:relative;padding:10px 0;display:block;transition:height .3s ease}.navigation-branding>div+.main-title{margin-left:10px}.navigation-branding .main-title{transition:line-height .3s ease}.navigation-branding .main-title a{font-family:inherit;font-size:inherit;font-weight:inherit;text-transform:unset}.main-navigation.mobile-header-navigation{display:none;float:none;margin-bottom:0}.mobile-header-navigation.is_stuck{box-shadow:0 2px 2px -2px rgba(0,0,0,.2)}.main-navigation .menu-toggle{flex-grow:1;width:auto}.main-navigation.has-branding .menu-toggle,.main-navigation.has-sticky-branding.navigation-stick .menu-toggle{flex-grow:0;padding-right:20px;order:2}.main-navigation:not(.slideout-navigation) .mobile-bar-items+.menu-toggle{text-align:left}.main-navigation.has-sticky-branding:not(.has-branding):not(.navigation-stick) .navigation-branding{display:none}.nav-align-right .navigation-branding{margin-right:auto}.main-navigation.has-branding:not([class*=nav-align-]):not(.mobile-header-navigation) .inside-navigation,.main-navigation.has-sticky-branding.navigation-stick:not([class*=nav-align-]):not(.mobile-header-navigation) .inside-navigation{justify-content:flex-start}.main-navigation.has-branding:not([class*=nav-align-]):not(.mobile-header-navigation) .menu-bar-items,.main-navigation.has-sticky-branding.navigation-stick:not([class*=nav-align-]):not(.mobile-header-navigation) .menu-bar-items{margin-left:auto}.mobile-header-navigation.has-menu-bar-items .mobile-header-logo{margin-right:auto}.main-navigation.has-branding.grid-container .navigation-branding,.main-navigation.has-branding:not(.grid-container) .inside-navigation:not(.grid-container) .navigation-branding{margin-left:10px}.navigation-branding img{height:60px;width:auto}.navigation-branding .main-title{line-height:60px}@media (max-width:1115px){#site-navigation .navigation-branding{margin-left:10px}}@media (max-width:768px){.main-navigation.has-branding.nav-align-center .menu-bar-items,.main-navigation.has-sticky-branding.navigation-stick.nav-align-center .menu-bar-items{margin-left:auto}.navigation-branding{margin-right:auto;margin-left:10px}.mobile-header-navigation .site-logo,.navigation-branding .main-title{margin-left:10px}}.wp-block-buttons,.wp-block-cover,.wp-block-image{margin-bottom:15px}.wp-block-cover{margin-top:-20px}.site-footer{border-top:solid #047c8a}#rank-math-faq .rank-math-question{background-color:#212121}#rank-math-faq .rank-math-answer{background-color:#212121}#rank-math-faq .rank-math-question:after{color:#fff}.main-navigation,.main-navigation ul ul{background-image:linear-gradient(to right,#07bcc4,#07bcc4,#e80e54,#e80e54,#2e0f14)}h2{background-image:linear-gradient(to right,#07bcc4,#07bcc4,#e80e54,#e80e54,#2e0f14);color:#fff;margin-left:-20px;margin-right:-20px;padding:10px;font-size:20px;text-align:center;font-weight:600!important}h3:not(.rank-math-question,.ft h3){background-image:linear-gradient(to right,#07bcc4,#07bcc4,#e80e54,#e80e54,#2e0f14);color:#fff;margin-left:-20px;margin-right:-20px;padding:10px;font-size:20px;text-align:center;font-weight:600!important}.ft{position:relative;z-index:2;margin-top:30px;padding:15px 20px;border-radius:6px;background:linear-gradient(180deg,#ffffff17,#000);box-shadow:10px 10px 19px #1c1e2252,-10px -10px 19px #262a2e00;transition:.4s;text-align:center;user-select:none;min-height:300px}.ft p{margin-bottom:0;line-height:1.5}.ft:hover{transition:.4s;background:linear-gradient(to right bottom,#212428,#16181c)}.ft h3{font-size:20px;background-color:#fff;color:#000;margin-left:-20px;margin-right:-20px;padding:8px;font-weight:600}.dl img{max-height:100px;max-width:100px;min-height:100px;fill:#fff;margin:10px;border-radius:15px;box-shadow:10px 10px 19px 2px #14141438,-10px -10px 19px 2px #0000002e}.dl{margin-top:10px;margin-bottom:10px;padding:15px 20px;border-radius:10px;background:#fff;box-shadow:10px 10px 19px #1c1e22,-10px -10px 19px #262a2e;transition:.4s;text-align:center;user-select:none;min-height:280px;color:#222}.dl:hover{transition:2s;background:linear-gradient(to right bottom,#212428,#16181c);color:#fff}.dl a{text-decoration:none;background:#4287ff;padding:10px 20px;display:block;border-radius:99px;color:#fff;box-shadow:0 10px 10px -5px #00000040!important;margin-bottom:10px}.dl a::before{content:'\2B73';font-size:18px;font-weight:700;margin:0 1px;margin-right:10px}.dl p{margin-bottom:10px;line-height:1.5;font-weight:400;text-align:center;font-size:18px}.dl h3{font-size:24px;margin-bottom:10px;font-weight:600}.wp-container-core-buttons-layout-1.wp-container-core-buttons-layout-1{justify-content:center}.wp-container-core-columns-layout-1.wp-container-core-columns-layout-1{flex-wrap:nowrap}.wp-container-core-columns-layout-2.wp-container-core-columns-layout-2{flex-wrap:nowrap}.wp-container-core-columns-layout-3.wp-container-core-columns-layout-3{flex-wrap:nowrap}.wp-container-core-buttons-layout-2.wp-container-core-buttons-layout-2{justify-content:center}.wp-container-core-columns-layout-4.wp-container-core-columns-layout-4{flex-wrap:nowrap}</style>
+<meta name="description" content="Baixe a versão mais recente do Tiktok 18+ Apk para Android. Obtenha o link de download do aplicativo Tiktok 18 Plus atualizado e desfrute de vídeos ilimitados gratuitamente."/>
+<meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
+<link rel="canonical" href="https://gruposegrupos.com.br/tiktok" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Baixar Tiktok 18+ APK Última versão para Android - 2024" />
+<meta property="og:description" content="Baixe a versão mais recente do Tiktok 18+ Apk para Android. Obtenha o link de download do aplicativo Tiktok 18 Plus atualizado e desfrute de vídeos ilimitados gratuitamente." />
+<meta property="og:url" content="https://gruposegrupos.com.br/tiktok" />
+<meta property="og:site_name" content="TikTok18+" />
+<meta property="og:updated_time" content="2024-01-17T05:44:06-03:00" />
+<meta property="article:published_time" content="2024-01-16T15:37:04-03:00" />
+<meta property="article:modified_time" content="2024-01-17T05:44:06-03:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Baixar Tiktok 18+ APK Última versão para Android - 2024" />
+<meta name="twitter:description" content="Baixe a versão mais recente do Tiktok 18+ Apk para Android. Obtenha o link de download do aplicativo Tiktok 18 Plus atualizado e desfrute de vídeos ilimitados gratuitamente." />
+<meta name="twitter:label1" content="Escrito por" />
+<meta name="twitter:data1" content="tikkz" />
+<meta name="twitter:label2" content="Tempo para leitura" />
+<meta name="twitter:data2" content="9 minutos" />
+<script type="application/ld+json" class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":["Person","Organization"],"@id":"https://tik18plus.co/#person","name":"TikTok18+","logo":{"@type":"ImageObject","@id":"https://tik18plus.co/#logo","url":"https://tik18plus.co/wp-content/uploads/2023/07/Tiktok-18-Apk.png","contentUrl":"https://tik18plus.co/wp-content/uploads/2023/07/Tiktok-18-Apk.png","caption":"TikTok18+","inLanguage":"pt-BR","width":"619","height":"618"},"image":{"@type":"ImageObject","@id":"https://tik18plus.co/#logo","url":"https://tik18plus.co/wp-content/uploads/2023/07/Tiktok-18-Apk.png","contentUrl":"https://tik18plus.co/wp-content/uploads/2023/07/Tiktok-18-Apk.png","caption":"TikTok18+","inLanguage":"pt-BR","width":"619","height":"618"}},{"@type":"WebSite","@id":"https://tik18plus.co/#website","url":"https://tik18plus.co","name":"TikTok18+","publisher":{"@id":"https://tik18plus.co/#person"},"inLanguage":"pt-BR","potentialAction":{"@type":"SearchAction","target":"https://tik18plus.co/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://tik18plus.co/wp-content/uploads/2024/01/tiktok-18-capa.webp","url":"https://tik18plus.co/wp-content/uploads/2024/01/tiktok-18-capa.webp","width":"200","height":"200","inLanguage":"pt-BR"},{"@type":["WebPage","FAQPage"],"@id":"https://tik18plus.co/#webpage","url":"https://tik18plus.co/","name":"Baixar Tiktok 18+ APK \u00daltima vers\u00e3o para Android - 2024","datePublished":"2024-01-16T15:37:04-03:00","dateModified":"2024-01-17T05:44:06-03:00","about":{"@id":"https://tik18plus.co/#person"},"isPartOf":{"@id":"https://tik18plus.co/#website"},"primaryImageOfPage":{"@id":"https://tik18plus.co/wp-content/uploads/2024/01/tiktok-18-capa.webp"},"inLanguage":"pt-BR","mainEntity":[{"@type":"Question","url":"https://tik18plus.co/#faq-question-1705418986228","name":"Existe um aplicativo TikTok somente para adultos?","acceptedAnswer":{"@type":"Answer","text":"A. Sim, existe o aplicativo TikTok 18+ que foi projetado apenas para espectadores adultos."}},{"@type":"Question","url":"https://tik18plus.co/#faq-question-1705419021745","name":"O TikTok APK \u00e9 seguro?","acceptedAnswer":{"@type":"Answer","text":"A. Sim, o uso \u00e9 seguro se voc\u00ea baixar o aplicativo de um site confi\u00e1vel."}},{"@type":"Question","url":"https://tik18plus.co/#faq-question-1705419036561","name":"O TikTok 18+ est\u00e1 dispon\u00edvel para iOS?","acceptedAnswer":{"@type":"Answer","text":"A. N\u00e3o, ele ainda n\u00e3o est\u00e1 dispon\u00edvel para iOS. Es"}}]},{"@type":"Person","@id":"https://tik18plus.co/author/tikkz/","name":"tikkz","url":"https://tik18plus.co/author/tikkz/","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/773086698206d594beace644eac0c573?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/773086698206d594beace644eac0c573?s=96&amp;d=mm&amp;r=g","caption":"tikkz","inLanguage":"pt-BR"},"sameAs":["https://tik18plus.co"]},{"@type":"BlogPosting","headline":"Baixar Tiktok 18+ APK \u00daltima vers\u00e3o para Android - 2024","keywords":"tiktok","datePublished":"2024-01-16T15:37:04-03:00","dateModified":"2024-01-17T05:44:06-03:00","author":{"@id":"https://tik18plus.co/author/tikkz/","name":"tikkz"},"publisher":{"@id":"https://tik18plus.co/#person"},"description":"Baixe a vers\u00e3o mais recente do Tiktok 18+ Apk para Android. Obtenha o link de download do aplicativo Tiktok 18 Plus atualizado e desfrute de v\u00eddeos ilimitados gratuitamente.","name":"Baixar Tiktok 18+ APK \u00daltima vers\u00e3o para Android - 2024","@id":"https://tik18plus.co/#richSnippet","isPartOf":{"@id":"https://tik18plus.co/#webpage"},"image":{"@id":"https://tik18plus.co/wp-content/uploads/2024/01/tiktok-18-capa.webp"},"inLanguage":"pt-BR","mainEntityOfPage":{"@id":"https://tik18plus.co/#webpage"}}]}</script>
+<!-- /Plugin de SEO Rank Math para WordPress -->
+
+<link rel='dns-prefetch' href='//www.googletagmanager.com' />
+
+<link rel="alternate" type="application/rss+xml" title="Feed para TikTok18+ &raquo;" href="//tik18plus.co/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Feed de comentários para TikTok18+ &raquo;" href="//tik18plus.co/comments/feed/" />
+<style id='wp-emoji-styles-inline-css'></style>
+
+<style id='rank-math-toc-block-style-inline-css'></style>
+<style id='classic-theme-styles-inline-css'></style>
+<style id='global-styles-inline-css'></style>
+
+
+
+
+
+<style id='generate-style-inline-css'></style>
+
+<style id='generate-navigation-branding-inline-css'></style>
+<style id='rocket-lazyload-inline-css'>
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:url(https://tik18plus.co/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}.wp-embed-responsive .wp-has-aspect-ratio .rll-youtube-player{position:absolute;padding-bottom:0;width:100%;height:100%;top:0;bottom:0;left:0;right:0}
+</style>
+<script type="rocketlazyloadscript" data-rocket-src="//tik18plus.co/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="//tik18plus.co/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js" defer></script>
+
+<!-- Snippet do Google Analytics adicionado pelo Site Kit -->
+<script type="rocketlazyloadscript" data-rocket-src="//www.googletagmanager.com/gtag/js?id=GT-P8QBQTN" id="google_gtagjs-js" async></script>
+<script type="rocketlazyloadscript" id="google_gtagjs-js-after">
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+gtag('set', 'linker', {"domains":["tik18plus.co"]} );
+gtag("js", new Date());
+gtag("set", "developer_id.dZTNiMT", true);
+gtag("config", "GT-P8QBQTN");
+</script>
+
+<!-- Finalizar o snippet do Google Analytics adicionado pelo Site Kit -->
+<link rel="https://api.w.org/" href="//tik18plus.co/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="//tik18plus.co/wp-json/wp/v2/pages/31" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="//tik18plus.co/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 6.6.1" />
+<link rel='shortlink' href='//tik18plus.co/' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="//tik18plus.co/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ftik18plus.co%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="//tik18plus.co/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ftik18plus.co%2F&#038;format=xml" />
+<meta name="generator" content="Site Kit by Google 1.118.0" /><link rel="icon" href="//tik18plus.co/wp-content/uploads/2023/07/cropped-Tiktok-18-Apk-32x32.png" sizes="32x32" />
+<link rel="icon" href="//tik18plus.co/wp-content/uploads/2023/07/cropped-Tiktok-18-Apk-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="//tik18plus.co/wp-content/uploads/2023/07/cropped-Tiktok-18-Apk-180x180.png" />
+<meta name="msapplication-TileImage" content="https://tik18plus.co/wp-content/uploads/2023/07/cropped-Tiktok-18-Apk-270x270.png" />
+		<style id="wp-custom-css"></style>
+		<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript></head>
+
+<body class="home page-template-default page page-id-31 wp-custom-logo wp-embed-responsive post-image-aligned-center sticky-menu-no-transition no-sidebar nav-below-header one-container header-aligned-left dropdown-hover" itemtype="https://schema.org/WebPage" itemscope>
+	<a class="screen-reader-text skip-link" href="#content" title="Pular para o conteúdo">Pular para o conteúdo</a>		<nav class="has-branding main-navigation grid-container nav-align-right has-menu-bar-items sub-menu-right" id="site-navigation" aria-label="Primary"  itemtype="https://schema.org/SiteNavigationElement" itemscope>
+			<div class="inside-navigation grid-container">
+				<div class="navigation-branding"><div class="site-logo">
+						<a href="https://tik18plus.co/" title="TikTok18+" rel="home">
+							<img  class="header-image is-logo-image" alt="TikTok18+" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20619%20618'%3E%3C/svg%3E" title="TikTok18+" width="619" height="618" data-lazy-src="//tik18plus.co/wp-content/uploads/2023/07/Tiktok-18-Apk.png" /><noscript><img  class="header-image is-logo-image" alt="TikTok18+" src="//tik18plus.co/wp-content/uploads/2023/07/Tiktok-18-Apk.png" title="TikTok18+" width="619" height="618" /></noscript>
+						</a>
+					</div><p class="main-title" itemprop="headline">
+					<a href="https://gruposegrupos.com.br/tiktok/" rel="home">
+						TikTok18+
+					</a>
+				</p></div>				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+					<span class="gp-icon icon-menu-bars"><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M0 96c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24zm0 160c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24zm0 160c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24z" /></svg><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M71.029 71.029c9.373-9.372 24.569-9.372 33.942 0L256 222.059l151.029-151.03c9.373-9.372 24.569-9.372 33.942 0 9.372 9.373 9.372 24.569 0 33.942L289.941 256l151.03 151.029c9.372 9.373 9.372 24.569 0 33.942-9.373 9.372-24.569 9.372-33.942 0L256 289.941l-151.029 151.03c-9.373 9.372-24.569 9.372-33.942 0-9.372-9.373-9.372-24.569 0-33.942L222.059 256 71.029 104.971c-9.372-9.373-9.372-24.569 0-33.942z" /></svg></span><span class="screen-reader-text">Menu</span>				</button>
+				<div id="primary-menu" class="main-nav"><ul id="menu-header" class=" menu sf-menu"><li id="menu-item-88" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-88"><a href="https://gruposegrupos.com.br/tiktok/download">Download</a></li>
+<li id="menu-item-53" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-53"><a href="https://gruposegrupos.com.br/tiktok/">Entre em contato conosco</a></li>
+</ul></div><div class="menu-bar-items"></div>			</div>
+		</nav>
+		
+	<div class="site grid-container container hfeed" id="page">
+				<div class="site-content" id="content">
+			
+	<div class="content-area" id="primary">
+		<main class="site-main" id="main">
+			
+<article id="post-31" class="post-31 page type-page status-publish" itemtype="https://schema.org/CreativeWork" itemscope>
+	<div class="inside-article">
+		
+		<div class="entry-content" itemprop="text">
+			
+<div class="wp-block-cover alignwide"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-80 has-background-dim"></span><img fetchpriority="high" decoding="async" width="1440" height="720" class="wp-block-cover__image-background wp-image-62" alt="tiktok-18-capa" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201440%20720'%3E%3C/svg%3E" data-object-fit="cover" data-lazy-srcset="//tik18plus.co/wp-content/uploads/2024/01/tiktok-18-capa.webp 1440w, //tik18plus.co/wp-content/uploads/2024/01/tiktok-18-capa-300x150.webp 300w, //tik18plus.co/wp-content/uploads/2024/01/tiktok-18-capa-1024x512.webp 1024w, //tik18plus.co/wp-content/uploads/2024/01/tiktok-18-capa-768x384.webp 768w" data-lazy-sizes="(max-width: 1440px) 100vw, 1440px" data-lazy-src="//tik18plus.co/wp-content/uploads/2024/01/tiktok-18-capa.webp" /><noscript><img fetchpriority="high" decoding="async" width="1440" height="720" class="wp-block-cover__image-background wp-image-62" alt="tiktok-18-capa" src="//tik18plus.co/wp-content/uploads/2024/01/tiktok-18-capa.webp" data-object-fit="cover" srcset="//tik18plus.co/wp-content/uploads/2024/01/tiktok-18-capa.webp 1440w, //tik18plus.co/wp-content/uploads/2024/01/tiktok-18-capa-300x150.webp 300w, //tik18plus.co/wp-content/uploads/2024/01/tiktok-18-capa-1024x512.webp 1024w, //tik18plus.co/wp-content/uploads/2024/01/tiktok-18-capa-768x384.webp 768w" sizes="(max-width: 1440px) 100vw, 1440px" /></noscript><div class="wp-block-cover__inner-container is-layout-constrained wp-block-cover-is-layout-constrained"><div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img decoding="async" width="619" height="618" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20619%20618'%3E%3C/svg%3E" alt="Tiktok 18 Apk" class="wp-image-10" style="width:161px;height:auto" data-lazy-srcset="//tik18plus.co/wp-content/uploads/2023/07/Tiktok-18-Apk.png 619w, //tik18plus.co/wp-content/uploads/2023/07/Tiktok-18-Apk-300x300.png 300w, //tik18plus.co/wp-content/uploads/2023/07/Tiktok-18-Apk-150x150.png 150w" data-lazy-sizes="(max-width: 619px) 100vw, 619px" data-lazy-src="//tik18plus.co/wp-content/uploads/2023/07/Tiktok-18-Apk.png" /><noscript><img decoding="async" width="619" height="618" src="//tik18plus.co/wp-content/uploads/2023/07/Tiktok-18-Apk.png" alt="Tiktok 18 Apk" class="wp-image-10" style="width:161px;height:auto" srcset="//tik18plus.co/wp-content/uploads/2023/07/Tiktok-18-Apk.png 619w, //tik18plus.co/wp-content/uploads/2023/07/Tiktok-18-Apk-300x300.png 300w, //tik18plus.co/wp-content/uploads/2023/07/Tiktok-18-Apk-150x150.png 150w" sizes="(max-width: 619px) 100vw, 619px" /></noscript></figure></div>
+
+
+<h1 class="wp-block-heading has-text-align-center has-large-font-size"><span id="TikTok_18">TikTok 18+</span></h1>
+
+
+
+<p class="has-text-align-center">O <a href="https://gruposegrupos.com.br/tiktok/">TikTok 18+ Apk </a>é a versão com a melhor codificação do famoso aplicativo de mídia social TikTok. Ele fornece principalmente acesso a uma variedade de conteúdo adulto que não pode ser acessado na versão oficial.</p>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-1 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#dl"><strong>Baixar o Apk</strong></a></div>
+</div>
+</div></div>
+
+
+
+<p>Está buscando o download do <strong>TikTok 18+ Apk</strong>? Preocupado em obter uma versão segura e protegida do TikTok 18+? Se sim, você está no lugar certo.</p>
+
+
+
+<p>Essa versão do aplicativo não está disponível na Google Play Store ou na App Store; você pode baixá-la apenas em sites de terceiros.</p>
+
+
+
+<p>Portanto, este artigo é sobre o download do <a href="https://gruposegrupos.com.br/tiktok/">TikTok 18 Plus</a> Apk, com um guia completo, incluindo recursos, instalação, uso e dicas de segurança. Então, vamos começar com uma introdução ao TikTok18+.</p>
+
+
+
+<h2 class="wp-block-heading"><span id="Introducao_ao_TikTok_18_Apk">Introdução ao TikTok 18+ Apk</span></h2>
+
+
+<div id="toc_container" class="toc_transparent no_bullets"><p class="toc_title">Conte&uacute;do</p><ul class="toc_list"><li><a href="#TikTok_18"><span class="toc_number toc_depth_1">1</span> TikTok 18+</a><ul><li><a href="#Introducao_ao_TikTok_18_Apk"><span class="toc_number toc_depth_2">1.1</span> Introdução ao TikTok 18+ Apk</a></li><li><a href="#Recursos_do_TikTok_18_Plus_App"><span class="toc_number toc_depth_2">1.2</span> Recursos do TikTok 18 Plus App</a><ul><li><a href="#Acesso_a_conteudo_adulto"><span class="toc_number toc_depth_3">1.2.1</span> Acesso a conteúdo adulto</a></li><li><a href="#Contornar_restricoes_regionais"><span class="toc_number toc_depth_3">1.2.2</span> Contornar restrições regionais</a></li><li><a href="#Video_de_alta_qualidade"><span class="toc_number toc_depth_3">1.2.3</span> Vídeo de alta qualidade</a></li><li><a href="#Sem_anuncios"><span class="toc_number toc_depth_3">1.2.4</span> Sem anúncios</a></li><li><a href="#Gratuito_para_uso"><span class="toc_number toc_depth_3">1.2.5</span> Gratuito para uso</a></li><li><a href="#Nao_e_necessario_se_inscrever"><span class="toc_number toc_depth_3">1.2.6</span> Não é necessário se inscrever</a></li><li><a href="#Baixar_videos"><span class="toc_number toc_depth_3">1.2.7</span> Baixar vídeos</a></li><li><a href="#Links_compartilhaveis"><span class="toc_number toc_depth_3">1.2.8</span> Links compartilháveis</a></li><li><a href="#Gravacao_e_captura_de_tela"><span class="toc_number toc_depth_3">1.2.9</span> Gravação e captura de tela</a></li></ul></li><li><a href="#TikTok_18_Apk_Baixar"><span class="toc_number toc_depth_2">1.3</span> TikTok 18+ Apk Baixar</a><ul><li><a href="#Guia_de_instalacao_do_TikTok_18_Plus_Apk"><span class="toc_number toc_depth_3">1.3.1</span> Guia de instalação do TikTok 18 Plus Apk</a></li><li><a href="#Como_usar_o_TikTok_18_Apk"><span class="toc_number toc_depth_3">1.3.2</span> Como usar o TikTok 18+ Apk?</a></li><li><a href="#Como_instalar_o_TikTok_18_APK_no_PC"><span class="toc_number toc_depth_3">1.3.3</span> Como instalar o TikTok 18+ APK no PC?</a></li></ul></li><li><a href="#Pros_e_contras_do_TikTok18_Apk"><span class="toc_number toc_depth_2">1.4</span> Prós e contras do TikTok18+ Apk</a></li><li><a href="#Perguntas_frequentes"><span class="toc_number toc_depth_2">1.5</span> Perguntas frequentes</a><ul><li><a href="#Existe_um_aplicativo_TikTok_somente_para_adultos"><span class="toc_number toc_depth_3">1.5.1</span> Existe um aplicativo TikTok somente para adultos?</a></li><li><a href="#O_TikTok_APK_e_seguro"><span class="toc_number toc_depth_3">1.5.2</span> O TikTok APK é seguro?</a></li><li><a href="#O_TikTok_18_esta_disponivel_para_iOS"><span class="toc_number toc_depth_3">1.5.3</span> O TikTok 18+ está disponível para iOS?</a></li></ul></li><li><a href="#Conclusao"><span class="toc_number toc_depth_2">1.6</span> Conclusão</a></li></ul></li></ul></div>
+
+
+
+
+<p>O <a href="https://gruposegrupos.com.br/tiktok/">TikTok 18+</a> Apk é uma versão modificada do aplicativo TikTok original, que fornece acesso a alguns conteúdos adultos exclusivos. Ele é usado principalmente por pessoas com mais de 18 anos de idade, pois contém conteúdo que não é adequado para espectadores com menos de 18 anos.</p>
+
+
+
+<p>O aplicativo funciona exatamente como a versão oficial do TikTok, mas com alguns recursos adicionais que permitem aos usuários navegar e visualizar conteúdo adulto.</p>
+
+
+
+<p>Essa versão modificada não está disponível na <a href="https://play.google.com/store/apps/details?id=com.zhiliaoapp.musically&amp;hl=pt_BR&amp;gl=US" rel="noopener">Google Play Store</a> ou na App Store, mas pode ser baixada de sites de terceiros. É importante garantir que o aplicativo seja desenvolvido apenas para dispositivos Android, pois essa versão modificada não é compatível com dispositivos iOS.</p>
+
+
+
+<p>Você pode usá-lo para assistir a vídeos, publicar comentários e curtidas e compartilhá-los com seus amigos. Você também pode criar vídeos curtos relacionados a conteúdo adulto e compartilhá-los nesse aplicativo modificado.</p>
+
+
+
+<p>Além de tudo isso, você deve saber que o TikTok é proibido na Índia e em alguns outros países, mas, com a ajuda dessa versão modificada, você pode contornar essas proibições e acessar o conteúdo do TikTok para maiores de 18 anos sem nenhum bloqueio.</p>
+
+
+
+<p>Além disso, você não infringirá nenhuma lei ao baixar e usar essa versão modificada, pois o aplicativo não está associado ao TikTok oficial.</p>
+
+
+
+<p>Por fim, é importante lembrar que você deve fazer o download em um site confiável e seguir as medidas de segurança para proteger seu dispositivo contra atividades maliciosas. No entanto, o aplicativo que compartilhamos abaixo passou por todos os testes e relatórios de verificação usando o TotalVirus, portanto, você pode baixá-lo e usá-lo sem preocupações.</p>
+
+
+
+<h2 class="wp-block-heading"><span id="Recursos_do_TikTok_18_Plus_App">Recursos do TikTok 18 Plus App</span></h2>
+
+
+
+<p>Agora que você sabe como instalar o aplicativo, vamos discutir alguns de seus recursos. Isso lhe dará uma ideia do que você pode esperar desse aplicativo modificado.</p>
+
+
+
+<p>O principal recurso que o torna diferente do aplicativo original é o acesso</p>
+
+
+
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-1 wp-block-columns-is-layout-flex">
+<div class="wp-block-column ft is-layout-flow wp-block-column-is-layout-flow"><div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img decoding="async" width="256" height="256" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20256%20256'%3E%3C/svg%3E" alt="conteúdo adulto" class="wp-image-34" style="width:120px" data-lazy-srcset="//tik18plus.co/wp-content/uploads/2024/01/adult-content.webp 256w, //tik18plus.co/wp-content/uploads/2024/01/adult-content-150x150.webp 150w" data-lazy-sizes="(max-width: 256px) 100vw, 256px" data-lazy-src="//tik18plus.co/wp-content/uploads/2024/01/adult-content.webp" /><noscript><img decoding="async" width="256" height="256" src="//tik18plus.co/wp-content/uploads/2024/01/adult-content.webp" alt="conteúdo adulto" class="wp-image-34" style="width:120px" srcset="//tik18plus.co/wp-content/uploads/2024/01/adult-content.webp 256w, //tik18plus.co/wp-content/uploads/2024/01/adult-content-150x150.webp 150w" sizes="(max-width: 256px) 100vw, 256px" /></noscript></figure></div>
+
+
+<h3 class="wp-block-heading"><span id="Acesso_a_conteudo_adulto">Acesso a conteúdo adulto</span></h3>
+
+
+
+<p>O principal recurso que torna o TikTok 18+ diferente do aplicativo original é o acesso a conteúdo adulto. Você pode assistir a vídeos, publicar comentários, curtidas e compartilhá-los com seus amigos, como faz no Tiktok oficial.</p>
+
+
+
+<p>No Tiktok oficial, você está restrito a assistir a conteúdo com base na idade, enquanto nesse aplicativo modificado você pode assistir a conteúdo adulto sem nenhuma restrição.</p>
+
+
+
+<p>Apenas certifique-se de ter mais de 18 anos de idade, pois o conteúdo desse aplicativo não é adequado para espectadores menores de 18 anos.</p>
+</div>
+
+
+
+<div class="wp-block-column ft is-layout-flow wp-block-column-is-layout-flow"><div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img decoding="async" width="512" height="512" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'%3E%3C/svg%3E" alt="restrição" class="wp-image-41" style="width:120px" data-lazy-srcset="//tik18plus.co/wp-content/uploads/2024/01/restriction.webp 512w, //tik18plus.co/wp-content/uploads/2024/01/restriction-300x300.webp 300w, //tik18plus.co/wp-content/uploads/2024/01/restriction-150x150.webp 150w" data-lazy-sizes="(max-width: 512px) 100vw, 512px" data-lazy-src="//tik18plus.co/wp-content/uploads/2024/01/restriction.webp" /><noscript><img decoding="async" width="512" height="512" src="//tik18plus.co/wp-content/uploads/2024/01/restriction.webp" alt="restrição" class="wp-image-41" style="width:120px" srcset="//tik18plus.co/wp-content/uploads/2024/01/restriction.webp 512w, //tik18plus.co/wp-content/uploads/2024/01/restriction-300x300.webp 300w, //tik18plus.co/wp-content/uploads/2024/01/restriction-150x150.webp 150w" sizes="(max-width: 512px) 100vw, 512px" /></noscript></figure></div>
+
+
+<h3 class="wp-block-heading"><span id="Contornar_restricoes_regionais">Contornar restrições regionais</span></h3>
+
+
+
+<p>Como você sabe que o TikTok está atualmente proibido na Índia e em alguns outros países, não é possível acessar o aplicativo oficial. Mas com o TikTok 18+ Apk, você pode facilmente contornar essas restrições e usá-lo livremente.</p>
+
+
+
+<p>Porque a restrição foi aplicada ao aplicativo oficial, que não está associado ao aplicativo oficial. É um aplicativo de terceiros com a mesma interface e recursos do aplicativo original.</p>
+
+
+
+<p>Portanto, dessa forma, você pode acessar o conteúdo sem nenhuma restrição de qualquer lugar do mundo.</p>
+</div>
+
+
+
+<div class="wp-block-column ft is-layout-flow wp-block-column-is-layout-flow"><div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img decoding="async" width="512" height="512" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'%3E%3C/svg%3E" alt="vídeo de alta qualidade" class="wp-image-37" style="width:120px" data-lazy-srcset="//tik18plus.co/wp-content/uploads/2024/01/high-quality-video.webp 512w, //tik18plus.co/wp-content/uploads/2024/01/high-quality-video-300x300.webp 300w, //tik18plus.co/wp-content/uploads/2024/01/high-quality-video-150x150.webp 150w" data-lazy-sizes="(max-width: 512px) 100vw, 512px" data-lazy-src="//tik18plus.co/wp-content/uploads/2024/01/high-quality-video.webp" /><noscript><img decoding="async" width="512" height="512" src="//tik18plus.co/wp-content/uploads/2024/01/high-quality-video.webp" alt="vídeo de alta qualidade" class="wp-image-37" style="width:120px" srcset="//tik18plus.co/wp-content/uploads/2024/01/high-quality-video.webp 512w, //tik18plus.co/wp-content/uploads/2024/01/high-quality-video-300x300.webp 300w, //tik18plus.co/wp-content/uploads/2024/01/high-quality-video-150x150.webp 150w" sizes="(max-width: 512px) 100vw, 512px" /></noscript></figure></div>
+
+
+<h3 class="wp-block-heading"><span id="Video_de_alta_qualidade">Vídeo de alta qualidade</span></h3>
+
+
+
+<p>A qualidade do vídeo nesse aplicativo é muito alta, e você pode assisti-lo sem nenhum atraso ou interrupção. Ele também oferece suporte a vídeos em HD e de resolução mais alta, para que você possa assistir ou fazer upload do conteúdo com excelente qualidade.</p>
+
+
+
+<p>A qualidade da imagem é muito nítida, e o áudio também é cristalino. Portanto, você também pode experimentar conteúdo de alta qualidade nessa versão modificada.</p>
+</div>
+</div>
+
+
+
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-2 wp-block-columns-is-layout-flex">
+<div class="wp-block-column ft is-layout-flow wp-block-column-is-layout-flow"><div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img decoding="async" width="512" height="512" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'%3E%3C/svg%3E" alt="sem anúncios" class="wp-image-39" style="width:120px" data-lazy-srcset="//tik18plus.co/wp-content/uploads/2024/01/no-ads.webp 512w, //tik18plus.co/wp-content/uploads/2024/01/no-ads-300x300.webp 300w, //tik18plus.co/wp-content/uploads/2024/01/no-ads-150x150.webp 150w" data-lazy-sizes="(max-width: 512px) 100vw, 512px" data-lazy-src="//tik18plus.co/wp-content/uploads/2024/01/no-ads.webp" /><noscript><img decoding="async" width="512" height="512" src="//tik18plus.co/wp-content/uploads/2024/01/no-ads.webp" alt="sem anúncios" class="wp-image-39" style="width:120px" srcset="//tik18plus.co/wp-content/uploads/2024/01/no-ads.webp 512w, //tik18plus.co/wp-content/uploads/2024/01/no-ads-300x300.webp 300w, //tik18plus.co/wp-content/uploads/2024/01/no-ads-150x150.webp 150w" sizes="(max-width: 512px) 100vw, 512px" /></noscript></figure></div>
+
+
+<h3 class="wp-block-heading"><span id="Sem_anuncios">Sem anúncios</span></h3>
+
+
+
+<p>A melhor parte dessa versão modificada é que ela não tem anúncios. Assim, você pode assistir aos seus vídeos favoritos sem ser interrompido por anúncios irritantes no meio.</p>
+
+
+
+<p>Além disso, você não precisa se preocupar com compras no aplicativo, pois essa versão é gratuita.</p>
+</div>
+
+
+
+<div class="wp-block-column ft is-layout-flow wp-block-column-is-layout-flow"><div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img decoding="async" width="512" height="512" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'%3E%3C/svg%3E" alt="uso livre" class="wp-image-36" style="width:120px" data-lazy-srcset="//tik18plus.co/wp-content/uploads/2024/01/free-use.webp 512w, //tik18plus.co/wp-content/uploads/2024/01/free-use-300x300.webp 300w, //tik18plus.co/wp-content/uploads/2024/01/free-use-150x150.webp 150w" data-lazy-sizes="(max-width: 512px) 100vw, 512px" data-lazy-src="//tik18plus.co/wp-content/uploads/2024/01/free-use.webp" /><noscript><img decoding="async" width="512" height="512" src="//tik18plus.co/wp-content/uploads/2024/01/free-use.webp" alt="uso livre" class="wp-image-36" style="width:120px" srcset="//tik18plus.co/wp-content/uploads/2024/01/free-use.webp 512w, //tik18plus.co/wp-content/uploads/2024/01/free-use-300x300.webp 300w, //tik18plus.co/wp-content/uploads/2024/01/free-use-150x150.webp 150w" sizes="(max-width: 512px) 100vw, 512px" /></noscript></figure></div>
+
+
+<h3 class="wp-block-heading"><span id="Gratuito_para_uso">Gratuito para uso</span></h3>
+
+
+
+<p>Se você acha que ser livre de anúncios lhe custará algo, está enganado. Esta versão mod do TikTok é totalmente gratuita.</p>
+
+
+
+<p>Basta baixar o aplicativo de um site confiável e começar a usá-lo sem problemas.</p>
+</div>
+
+
+
+<div class="wp-block-column ft is-layout-flow wp-block-column-is-layout-flow"><div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img decoding="async" width="512" height="512" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'%3E%3C/svg%3E" alt="sem login" class="wp-image-38" style="width:120px" data-lazy-srcset="//tik18plus.co/wp-content/uploads/2024/01/no-login.webp 512w, //tik18plus.co/wp-content/uploads/2024/01/no-login-300x300.webp 300w, //tik18plus.co/wp-content/uploads/2024/01/no-login-150x150.webp 150w" data-lazy-sizes="(max-width: 512px) 100vw, 512px" data-lazy-src="//tik18plus.co/wp-content/uploads/2024/01/no-login.webp" /><noscript><img decoding="async" width="512" height="512" src="//tik18plus.co/wp-content/uploads/2024/01/no-login.webp" alt="sem login" class="wp-image-38" style="width:120px" srcset="//tik18plus.co/wp-content/uploads/2024/01/no-login.webp 512w, //tik18plus.co/wp-content/uploads/2024/01/no-login-300x300.webp 300w, //tik18plus.co/wp-content/uploads/2024/01/no-login-150x150.webp 150w" sizes="(max-width: 512px) 100vw, 512px" /></noscript></figure></div>
+
+
+<h3 class="wp-block-heading"><span id="Nao_e_necessario_se_inscrever">Não é necessário se inscrever</span></h3>
+
+
+
+<p>Ao contrário de outros aplicativos de mídia social, você não precisa se inscrever para essa versão modificada. Basta fazer o download e começar a aproveitar o conteúdo sem nenhuma conta.</p>
+
+
+
+<p>Isso o ajudará a manter seus dados pessoais seguros e protegidos, pois você não precisa compartilhar nenhum detalhe para usá-lo.</p>
+</div>
+</div>
+
+
+
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-3 wp-block-columns-is-layout-flex">
+<div class="wp-block-column ft is-layout-flow wp-block-column-is-layout-flow"><div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img decoding="async" width="512" height="512" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'%3E%3C/svg%3E" alt="download de vídeo" class="wp-image-35" style="width:120px" data-lazy-srcset="//tik18plus.co/wp-content/uploads/2024/01/download-video.webp 512w, //tik18plus.co/wp-content/uploads/2024/01/download-video-300x300.webp 300w, //tik18plus.co/wp-content/uploads/2024/01/download-video-150x150.webp 150w" data-lazy-sizes="(max-width: 512px) 100vw, 512px" data-lazy-src="//tik18plus.co/wp-content/uploads/2024/01/download-video.webp" /><noscript><img decoding="async" width="512" height="512" src="//tik18plus.co/wp-content/uploads/2024/01/download-video.webp" alt="download de vídeo" class="wp-image-35" style="width:120px" srcset="//tik18plus.co/wp-content/uploads/2024/01/download-video.webp 512w, //tik18plus.co/wp-content/uploads/2024/01/download-video-300x300.webp 300w, //tik18plus.co/wp-content/uploads/2024/01/download-video-150x150.webp 150w" sizes="(max-width: 512px) 100vw, 512px" /></noscript></figure></div>
+
+
+<h3 class="wp-block-heading"><span id="Baixar_videos">Baixar vídeos</span></h3>
+
+
+
+<p>Outro recurso importante do TikTok 18+ Apk é que ele permite que você baixe vídeos do aplicativo. Portanto, se você gostar de algum vídeo, poderá baixá-lo diretamente e salvá-lo em seu dispositivo.</p>
+</div>
+
+
+
+<div class="wp-block-column ft is-layout-flow wp-block-column-is-layout-flow"><div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img decoding="async" width="512" height="512" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'%3E%3C/svg%3E" alt="compartilhar" class="wp-image-42" style="width:120px" data-lazy-srcset="//tik18plus.co/wp-content/uploads/2024/01/share.webp 512w, //tik18plus.co/wp-content/uploads/2024/01/share-300x300.webp 300w, //tik18plus.co/wp-content/uploads/2024/01/share-150x150.webp 150w" data-lazy-sizes="(max-width: 512px) 100vw, 512px" data-lazy-src="//tik18plus.co/wp-content/uploads/2024/01/share.webp" /><noscript><img decoding="async" width="512" height="512" src="//tik18plus.co/wp-content/uploads/2024/01/share.webp" alt="compartilhar" class="wp-image-42" style="width:120px" srcset="//tik18plus.co/wp-content/uploads/2024/01/share.webp 512w, //tik18plus.co/wp-content/uploads/2024/01/share-300x300.webp 300w, //tik18plus.co/wp-content/uploads/2024/01/share-150x150.webp 150w" sizes="(max-width: 512px) 100vw, 512px" /></noscript></figure></div>
+
+
+<h3 class="wp-block-heading"><span id="Links_compartilhaveis">Links compartilháveis</span></h3>
+
+
+
+<p>Assim como no aplicativo oficial do TikTok, você pode compartilhar os links dos vídeos diretamente em outras mídias sociais, como Whatsapp, Facebook etc. Isso o ajudará a compartilhar os vídeos escolhidos com seus amigos.</p>
+
+
+
+<p>Você também pode copiar o link de qualquer vídeo e mantê-lo para uso posterior.</p>
+</div>
+
+
+
+<div class="wp-block-column ft is-layout-flow wp-block-column-is-layout-flow"><div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img decoding="async" width="512" height="512" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'%3E%3C/svg%3E" alt="registro" class="wp-image-40" style="width:120px" data-lazy-srcset="//tik18plus.co/wp-content/uploads/2024/01/recxording.webp 512w, //tik18plus.co/wp-content/uploads/2024/01/recxording-300x300.webp 300w, //tik18plus.co/wp-content/uploads/2024/01/recxording-150x150.webp 150w" data-lazy-sizes="(max-width: 512px) 100vw, 512px" data-lazy-src="//tik18plus.co/wp-content/uploads/2024/01/recxording.webp" /><noscript><img decoding="async" width="512" height="512" src="//tik18plus.co/wp-content/uploads/2024/01/recxording.webp" alt="registro" class="wp-image-40" style="width:120px" srcset="//tik18plus.co/wp-content/uploads/2024/01/recxording.webp 512w, //tik18plus.co/wp-content/uploads/2024/01/recxording-300x300.webp 300w, //tik18plus.co/wp-content/uploads/2024/01/recxording-150x150.webp 150w" sizes="(max-width: 512px) 100vw, 512px" /></noscript></figure></div>
+
+
+<h3 class="wp-block-heading"><span id="Gravacao_e_captura_de_tela">Gravação e captura de tela</span></h3>
+
+
+
+<p>Com o TikTok 18+ Apk, você também pode gravar sua tela enquanto assiste aos vídeos. Esse recurso é muito útil para copiar alguns clipes interessantes.</p>
+
+
+
+<p>Além disso, com isso, você pode fazer uma captura de tela do vídeo e compartilhá-la com seus amigos</p>
+</div>
+</div>
+
+
+
+<p>A partir de agora, você já conhece o aplicativo e suas especificações. Agora é hora de baixar o aplicativo TikTok 18+ para seu dispositivo.</p>
+
+
+
+<p>Mas, antes disso, é importante garantir que seu dispositivo atenda aos requisitos mínimos para baixar e instalar o aplicativo, conforme mencionado acima.</p>
+
+
+
+<p>Por exemplo, seu dispositivo deve ter a versão 4.0 ou superior do sistema operacional Android e espaço livre suficiente na memória para baixar o arquivo apk.</p>
+
+
+
+<p>Além disso, se você obtiver um link de download de um site de terceiros, verifique se a fonte é confiável. Além disso, você deve verificá-lo no VirusTotal para garantir que ele não contenha nenhum malware.</p>
+
+
+
+<h2 class="wp-block-heading" id="dl"><span id="TikTok_18_Apk_Baixar">TikTok 18+ Apk Baixar</span></h2>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img decoding="async" width="619" height="618" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20619%20618'%3E%3C/svg%3E" alt="Tiktok 18 Apk" class="wp-image-10" style="width:155px;height:auto" data-lazy-srcset="//tik18plus.co/wp-content/uploads/2023/07/Tiktok-18-Apk.png 619w, //tik18plus.co/wp-content/uploads/2023/07/Tiktok-18-Apk-300x300.png 300w, //tik18plus.co/wp-content/uploads/2023/07/Tiktok-18-Apk-150x150.png 150w" data-lazy-sizes="(max-width: 619px) 100vw, 619px" data-lazy-src="//tik18plus.co/wp-content/uploads/2023/07/Tiktok-18-Apk.png" /><noscript><img decoding="async" width="619" height="618" src="//tik18plus.co/wp-content/uploads/2023/07/Tiktok-18-Apk.png" alt="Tiktok 18 Apk" class="wp-image-10" style="width:155px;height:auto" srcset="//tik18plus.co/wp-content/uploads/2023/07/Tiktok-18-Apk.png 619w, //tik18plus.co/wp-content/uploads/2023/07/Tiktok-18-Apk-300x300.png 300w, //tik18plus.co/wp-content/uploads/2023/07/Tiktok-18-Apk-150x150.png 150w" sizes="(max-width: 619px) 100vw, 619px" /></noscript></figure></div>
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><tbody><tr><td><strong>Nome do aplicativo</strong></td><td>TikTok 18+ Apk</td></tr><tr><td><strong>Versão</strong></td><td>v1.3.7</td></tr><tr><td><strong>Tamanho</strong></td><td>40 MB</td></tr><tr><td><strong>Versão para Android</strong></td><td>4.0 or Acima</td></tr><tr><td><strong>Suporte</strong></td><td>Android</td></tr><tr><td><strong>Categoria</strong></td><td>Aplicativo de mídia social e entretenimento</td></tr><tr><td><strong>Site oficial</strong></td><td><a href="https://gruposegrupos.com.br/tiktok/">https://gruposegrupos.com.br/tiktok/</a></td></tr></tbody></table></figure>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-2 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-fill"><a class="wp-block-button__link wp-element-button" href="https://gruposegrupos.com.br/tiktok/download"><strong>Baixar o TikTok 18+</strong></a></div>
+</div>
+
+
+
+<p>Compartilhamos o arquivo apk mais seguro da versão mais recente do TikTok 18+ Apk, que pode ser baixado no link fornecido acima.</p>
+
+
+
+<h3 class="wp-block-heading"><span id="Guia_de_instalacao_do_TikTok_18_Plus_Apk"><strong>Guia de instalação do TikTok 18 Plus Apk</strong></span></h3>
+
+
+
+<p>Depois de fazer o download do arquivo apk, agora é hora de instalá-lo em seu dispositivo.</p>
+
+
+
+<p>Em qualquer aplicativo que você baixe da Play Store, a instalação é rápida e simples. No entanto, como essa versão do TikTok 18+ Apk não está disponível na Google Play Store ou na App Store, você precisará executar algumas etapas extras para uma instalação bem-sucedida.</p>
+
+
+
+<p>Para isso, será necessário ativar &#8220;Fontes desconhecidas&#8221; nas configurações do dispositivo. Isso é importante porque, quando você instala um aplicativo de um site de terceiros, ele não é verificado oficialmente pelo Google.</p>
+
+
+
+<p>Ao ativar essa opção, você permitirá que seu dispositivo instale aplicativos de fontes desconhecidas.</p>
+
+
+
+<p>Para fazer isso, basta abrir as configurações do dispositivo&gt;Segurança e privacidade&gt;Ativar fontes desconhecidas.</p>
+
+
+
+<p>Feito isso, você pode iniciar o processo de instalação.</p>
+
+
+
+<p>Vá para o gerenciador de arquivos e procure o arquivo apk baixado do TikTok 18+. Abra-o e clique em instalar. Aguarde até que a instalação seja concluída e você estará pronto para usá-lo.</p>
+
+
+
+<p>Apenas certifique-se de desativar a opção Fontes desconhecidas após a conclusão da instalação, pois isso pode criar uma brecha de segurança em seu dispositivo.</p>
+
+
+
+<h3 class="wp-block-heading"><span id="Como_usar_o_TikTok_18_Apk"><strong>Como usar o TikTok 18+ Apk?</strong></span></h3>
+
+
+
+<p>Se você estiver confuso sobre como usar essa versão modificada, não precisa se preocupar; é muito fácil e semelhante ao aplicativo original.</p>
+
+
+
+<p>Depois de fazer o download e instalar esse aplicativo, abra-o e você verá a mesma interface que encontra no aplicativo TikTok original.</p>
+
+
+
+<p>A diferença está no conteúdo. Você pode encontrar conteúdo adulto nessa versão, o que não é possível encontrar no TikTok oficial.</p>
+
+
+
+<p>Você pode assistir, curtir, comentar e compartilhar os vídeos da mesma forma que no aplicativo oficial.</p>
+
+
+
+<h3 class="wp-block-heading"><span id="Como_instalar_o_TikTok_18_APK_no_PC"><strong>Como instalar o TikTok 18+ APK no PC?</strong></span></h3>
+
+
+
+<p>Se você gosta de assistir a conteúdo adulto em uma tela maior, também pode instalar esse aplicativo no seu PC.</p>
+
+
+
+<p>Embora tenha sido projetado para dispositivos Android, você pode usá-lo em seu PC com a ajuda de um emulador.</p>
+
+
+
+<p>Para instalar esse aplicativo em um PC, primeiro baixe e instale um emulador de Android em seu PC. Você pode usar o Bluestacks.</p>
+
+
+
+<p>Uma vez feito isso, baixe o arquivo apk do aplicativo. Agora, clique com o botão direito do mouse sobre ele e escolha Abrir com o <a href="https://www.bluestacks.com/pt-br/index.html" rel="noopener">Bluestacks</a>. Isso iniciará o processo de instalação.</p>
+
+
+
+<p>Depois que a instalação for concluída, você poderá usá-lo facilmente em seu PC. Você terá os mesmos recursos e conteúdo que encontra em um telefone Android.</p>
+
+
+
+<h2 class="wp-block-heading"><span id="Pros_e_contras_do_TikTok18_Apk">Prós e contras do TikTok18+ Apk</span></h2>
+
+
+
+<p>Como qualquer outro aplicativo, há alguns prós e contras no uso dessa versão modificada que você deve conhecer antes de usá-la.</p>
+
+
+
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-4 wp-block-columns-is-layout-flex">
+<div class="wp-block-column has-background is-layout-flow wp-block-column-is-layout-flow" style="background-color:#146211">
+<p class="has-text-align-center"><strong>Pros</strong></p>
+
+
+
+<ul class="wp-block-list">
+<li>Access to adult content</li>
+
+
+
+<li>Easy access in restricted countries</li>
+
+
+
+<li>High-quality videos</li>
+
+
+
+<li>No ads</li>
+
+
+
+<li>Free to use without any signup</li>
+</ul>
+</div>
+
+
+
+<div class="wp-block-column has-background is-layout-flow wp-block-column-is-layout-flow" style="background-color:#820b0b">
+<p class="has-text-align-center"><strong>Cons</strong></p>
+
+
+
+<ul class="wp-block-list">
+<li>Chance of getting virus or malware</li>
+
+
+
+<li>Not suitable for IOS</li>
+
+
+
+<li>No support from official developers</li>
+</ul>
+</div>
+</div>
+
+
+
+<h2 class="wp-block-heading"><span id="Perguntas_frequentes"><strong>Perguntas frequentes</strong></span></h2>
+
+
+<div id="rank-math-faq" class="rank-math-block">
+<div class="rank-math-list ">
+<div id="faq-question-1705418986228" class="rank-math-list-item">
+<h3 class="rank-math-question "><span id="Existe_um_aplicativo_TikTok_somente_para_adultos">Existe um aplicativo TikTok somente para adultos?</span></h3>
+<div class="rank-math-answer ">
+
+<p>A. Sim, existe o aplicativo TikTok 18+ que foi projetado apenas para espectadores adultos.</p>
+
+</div>
+</div>
+<div id="faq-question-1705419021745" class="rank-math-list-item">
+<h3 class="rank-math-question "><span id="O_TikTok_APK_e_seguro">O TikTok APK é seguro?</span></h3>
+<div class="rank-math-answer ">
+
+<p>A. Sim, o uso é seguro se você baixar o aplicativo de um site confiável.</p>
+
+</div>
+</div>
+<div id="faq-question-1705419036561" class="rank-math-list-item">
+<h3 class="rank-math-question "><span id="O_TikTok_18_esta_disponivel_para_iOS">O TikTok 18+ está disponível para iOS?<br></span></h3>
+<div class="rank-math-answer ">
+
+<p>A. Não, ele ainda não está disponível para iOS. Es</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+<h2 class="wp-block-heading"><span id="Conclusao">Conclusão</span></h2>
+
+
+
+<p>Em resumo, o TikTok 18+ Apk é uma ótima alternativa ao aplicativo original para espectadores adultos. Ele oferece a mesma interface e os mesmos recursos com acesso adicional a conteúdo adulto.</p>
+
+
+
+<p>Seu uso também é gratuito e não requer nenhum registro ou autenticação. Portanto, se você quiser assistir ao conteúdo sem nenhuma restrição, experimente essa versão modificada.</p>
+
+
+
+<p>Espero que você tenha achado este artigo útil e que sua busca pelo download do TikTok 18+ Apk termine aqui. Se tiver alguma dúvida, sinta-se à vontade para <a href="https/">entrar em contato conosco</a>.</p>
+		</div>
+
+			</div>
+</article>
+		</main>
+	</div>
+
+	
+	</div>
+</div>
+
+
+<div class="site-footer grid-container footer-bar-active footer-bar-align-right">
+			<footer class="site-info" aria-label="Site"  itemtype="https://schema.org/WPFooter" itemscope>
+			<div class="inside-site-info grid-container">
+						<div class="footer-bar">
+			<aside id="nav_menu-3" class="widget inner-padding widget_nav_menu"><div class="menu-footer-container"><ul id="menu-footer" class="menu"><li id="menu-item-47" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-47"><a href="">Isenção de responsabilidade</a></li>
+<li id="menu-item-48" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48"><a href="">Termos e condições</a></li>
+<li id="menu-item-50" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-50"><a href="https">Política de privacidade</a></li>
+<li id="menu-item-49" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-49"><a href="">DMCA</a></li>
+<li id="menu-item-46" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-46"><a href="">Entre em contato conosco</a></li>
+</ul></div></aside>		</div>
+						<div class="copyright-bar">
+					&copy; 2024				</div>
+			</div>
+		</footer>
+		</div>
+
+<script type="rocketlazyloadscript" id="generate-a11y">!function(){"use strict";if("querySelector"in document&&"addEventListener"in window){var e=document.body;e.addEventListener("mousedown",function(){e.classList.add("using-mouse")}),e.addEventListener("keydown",function(){e.classList.remove("using-mouse")})}}();</script><style id='core-block-supports-inline-css'>
+.wp-container-core-buttons-is-layout-1{justify-content:center;}.wp-container-core-columns-is-layout-1{flex-wrap:nowrap;}.wp-container-core-columns-is-layout-2{flex-wrap:nowrap;}.wp-container-core-columns-is-layout-3{flex-wrap:nowrap;}.wp-container-core-buttons-is-layout-2{justify-content:center;}.wp-container-core-columns-is-layout-4{flex-wrap:nowrap;}
+</style>
+<script id="rate-my-post-js-extra">
+var rmp_frontend = {"admin_ajax":"https:\/\/tik18plus.co\/wp-admin\/admin-ajax.php","postID":"31","noVotes":"No votes so far! Be the first to rate this post.","cookie":"You already voted! This vote will not be counted!","afterVote":"Thank you for rating this post!","notShowRating":"1","social":"1","feedback":"1","cookieDisable":"1","emptyFeedback":"Please insert your feedback in the box above!","hoverTexts":"1","preventAccidental":"1","grecaptcha":"1","siteKey":"","votingPriv":"1","loggedIn":"","positiveThreshold":"2","ajaxLoad":"1","disableClearCache":"1","nonce":"44ac784299"};
+var rmp_frontend = {"admin_ajax":"https:\/\/tik18plus.co\/wp-admin\/admin-ajax.php","postID":"31","noVotes":"No votes so far! Be the first to rate this post.","cookie":"You already voted! This vote will not be counted!","afterVote":"Thank you for rating this post!","notShowRating":"1","social":"1","feedback":"1","cookieDisable":"1","emptyFeedback":"Please insert your feedback in the box above!","hoverTexts":"1","preventAccidental":"1","grecaptcha":"1","siteKey":"","votingPriv":"1","loggedIn":"","positiveThreshold":"2","ajaxLoad":"1","disableClearCache":"1","nonce":"44ac784299"};
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="//tik18plus.co/wp-content/cache/min/1/wp-content/plugins/rate-my-post/public/js/rate-my-post.js?ver=1705473103" id="rate-my-post-js" defer></script>
+<script id="toc-front-js-extra">
+var tocplus = {"smooth_scroll":"1","visibility_show":"show","visibility_hide":"esconder","visibility_hide_by_default":"1","width":"Auto"};
+var tocplus = {"smooth_scroll":"1","visibility_show":"show","visibility_hide":"esconder","visibility_hide_by_default":"1","width":"Auto"};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="//tik18plus.co/wp-content/plugins/table-of-contents-plus/front.min.js?ver=2309" id="toc-front-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="//tik18plus.co/wp-content/plugins/turn-rank-math-faq-block-to-accordion/assets/js/RMFA-JS.min.js?ver=1.1.0" id="RMFA-js-js" defer></script>
+<script type="rocketlazyloadscript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index.php\/)?(.*)wp-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/tik18plus.co","onHoverDelay":"100","rateThrottle":"3"};
+</script>
+<script type="rocketlazyloadscript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<!--[if lte IE 11]>
+<script src="//tik18plus.co/wp-content/themes/generatepress/assets/js/classList.min.js?ver=3.3.1" id="generate-classlist-js"></script>
+<![endif]-->
+<script id="generate-menu-js-extra">
+var generatepressMenu = {"toggleOpenedSubMenus":"1","openSubMenuLabel":"Open Sub-Menu","closeSubMenuLabel":"Close Sub-Menu"};
+var generatepressMenu = {"toggleOpenedSubMenus":"1","openSubMenuLabel":"Open Sub-Menu","closeSubMenuLabel":"Close Sub-Menu"};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="//tik18plus.co/wp-content/themes/generatepress/assets/js/menu.min.js?ver=3.3.1" id="generate-menu-js" defer></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="//tik18plus.co/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script><script>function lazyLoadThumb(e,alt){var t='<img data-lazy-src="//i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="//i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="play Youtube video"></button>';t=t.replace('alt=""','alt="'+alt+'"');return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?'':'&'+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var e,t,p,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)e=document.createElement("div"),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query", a[t].dataset.query),e.setAttribute("data-src", a[t].dataset.src),e.innerHTML=lazyLoadThumb(a[t].dataset.id,a[t].dataset.alt),a[t].appendChild(e),p=e.querySelector('.play'),p.onclick=lazyLoadYoutubeIframe});</script>
+</body>
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1723876499 -->
